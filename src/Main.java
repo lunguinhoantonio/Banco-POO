@@ -58,7 +58,7 @@ public class Main {
             System.out.print("Resposta: ");
             answer = scanner.nextLine();
             monthAnswer = Integer.parseInt(answer);
-            isValidMonth = monthAnswer > 0 && monthAnswer < 13;
+            isValidMonth = monthAnswer > 0 && monthAnswer <= 12;
         } while (!isValidMonth);
 
         int[] month30DaysPossible = {1, 3, 5, 7, 8, 10, 12};
@@ -68,20 +68,20 @@ public class Main {
             dayBirth = scanner.nextInt();
             for (int month : month30DaysPossible) {
                 if (month == monthAnswer) {
-                    isValidDay = dayBirth > 1 && dayBirth <= 30;
+                    isValidDay = dayBirth > 0 && dayBirth <= 30;
                     break;
                 }
             }
 
             for (int month : month31DaysPossible) {
                 if (month == monthAnswer) {
-                    isValidDay = dayBirth > 1 && dayBirth <= 31;
+                    isValidDay = dayBirth > 0 && dayBirth <= 31;
                     break;
                 }
             }
 
             if (monthAnswer == 2) {
-                isValidDay = dayBirth > 1 && dayBirth <= 29;
+                isValidDay = dayBirth > 0 && dayBirth <= 29;
             }
             
             if (!isValidDay) {
